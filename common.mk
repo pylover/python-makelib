@@ -18,7 +18,7 @@ venv:
 
 .PHONY: venv-delete
 venv-delete: clean
-	rm -rf $(PREFIX)
+	-rm -rf $(PREFIX)
 
 
 .PHONY: fresh
@@ -63,7 +63,7 @@ dist: sdist wheel
 
 .PHONY: dist-clean
 dist-clean:
-	rm -rf dist/*
+	-rm -rf dist/*
 
 
 .PHONY: lint
@@ -73,4 +73,4 @@ lint:
 
 .PHONY: clean
 clean: dist-clean
-	rm -rf build/*
+	-rm -rf build/*
