@@ -6,7 +6,7 @@
 
 
 get_venv() {
-  local here=$(dirname $(readlink -f ${BASH_SOURCE}))
+  local here=$(dirname $(readlink -f ${BASH_SOURCE}))/..
   local venv=$1
 
   if [ -z "$venv" ]; then

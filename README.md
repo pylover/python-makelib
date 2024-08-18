@@ -22,6 +22,15 @@ include make/pypi.mk
 
 ### Usage
 
+#### Activate the virtual environment
+```bash
+source make/activate.sh
+
+# Or
+ln -s make/activate.sh .
+source activate.sh
+```
+
 #### common.mk
 ##### Virtual environment
 ```bash
