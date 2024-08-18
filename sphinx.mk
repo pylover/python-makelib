@@ -1,3 +1,6 @@
+QA += doctest
+
+
 .PHONY: doc
 doc:
 	cd $(SPHINX_PATH); make html

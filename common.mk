@@ -11,7 +11,7 @@ SPHINX_PATH ?= sphinx
 ENV ?= dev
 PYTHON_MAKELIB_DIR ?= make
 PYTHON_MAKELIB_VERSION = 1.0.0
-
+QA += lint
 
 # Virtual environment
 .PHONY: venv
@@ -82,3 +82,8 @@ clean: dist-clean
 .PHONY: release
 release:
 	$(PYTHON_MAKELIB_DIR)/release.sh $(HERE) $(PKG)
+
+
+.PHONY: qa
+qa:
+	make $(QA)

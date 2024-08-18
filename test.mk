@@ -1,6 +1,7 @@
 PYTEST ?= $(PREFIX)/bin/pytest
 TEST_DIR = tests
 PYTEST_FLAGS += -v
+QA += cover
 
 
 ifdef F
@@ -24,6 +25,3 @@ cover:
 cover-html: cover
 	$(COVERAGE) html
 	@echo "Browse htmlcov/index.html for the covearge report"
-
-
-
