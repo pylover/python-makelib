@@ -32,7 +32,10 @@ make venv
 make venv-delete
 
 # Delete and re-create a fresh virtual environment
-make venv-fresh
+make fresh
+
+# Delete and re-create a fresh virtual environment + editable mode install
+make fresh env
 ```
 
 ##### Project Installation

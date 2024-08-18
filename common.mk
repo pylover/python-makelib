@@ -1,7 +1,7 @@
 HERE = $(shell readlink -f `dirname .`)
 PKG_NAME ?= $(shell basename $(HERE))
-
-PREFIX ?= $(HOME)/.virtualenvs/$(PKG_NAME)
+VENV ?= $(PKG_NAME)
+PREFIX ?= $(HOME)/.virtualenvs/$(VENV)
 PY ?= $(PREFIX)/bin/python3
 PIP ?= $(PREFIX)/bin/pip3
 COVERAGE ?= $(PREFIX)/bin/coverage
@@ -21,8 +21,8 @@ venv-delete: clean
 	rm -rf $(PREFIX)
 
 
-.PHONY: venv-fresh
-venv-fresh: venv-delete venv
+.PHONY: fresh
+fresh: venv-delete venv
 
 
 # Install
