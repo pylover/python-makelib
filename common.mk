@@ -1,3 +1,6 @@
+HERE = $(shell readlink -f `dirname .`)
+PKG_NAME ?= $(shell basename $(HERE))
+
 PREFIX ?= $(HOME)/.virtualenvs/$(PKG_NAME)
 PY ?= $(PREFIX)/bin/python3
 PIP ?= $(PREFIX)/bin/pip3
@@ -23,9 +26,19 @@ venv-fresh: venv-delete venv
 
 
 # Install
+.PHONY: install
+install:
+	$(PIP) install .
+
+
 .PHONY: install-editable
 install-editable:
 	$(PIP) install -e .
+
+
+.PHONY: uninstall
+uninstall:
+	$(PIP) uninstall -y $(PKG_NAME)
 
 
 .PHONY: env
