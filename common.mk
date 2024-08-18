@@ -13,6 +13,11 @@ PYTHON_MAKELIB_DIR ?= make
 PYTHON_MAKELIB_VERSION = 1.0.0
 QA += lint
 
+
+.PHONY: all
+all: qa
+
+
 # Virtual environment
 .PHONY: venv
 venv:
