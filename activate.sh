@@ -9,7 +9,7 @@ SHELLNAME=$(basename $SHELL)
 if [ "${SHELLNAME}" = "zsh" ]; then
     HERE=${0:a:h}     
 elif [[ "${SHELLNAME}" = "sh"  ]] || [[ "${SHELLNAME}" = "bash" ]]; then
-    HERE=$(dirname $(realpath ${HERE}))/..
+    HERE=$(dirname $(readlink -f ${BASH_SOURCE}))/..
 else
     echo "${SHELLNAME} is not supported" >2
     return 1
