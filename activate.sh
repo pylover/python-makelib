@@ -4,6 +4,7 @@
 # . activate.sh
 # . activate.sh <venv-name>
 
+
 SHELLNAME=$(basename $SHELL)
 if [ "${SHELLNAME}" = "zsh" ]; then
     HERE=${0:a:h}     
@@ -16,7 +17,6 @@ fi
   
 
 get_venv() {
-   # local thisfile
    local venv=$1
   
    if [ -z "$venv" ]; then
