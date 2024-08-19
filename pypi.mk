@@ -2,5 +2,5 @@ TWINE ?= $(PREFIX)/bin/twine
 
 
 .PHONY: pypi
-pypi: dist-clean dist
+pypi: clean dist
 	$(TWINE) upload dist/*.gz dist/*.whl

@@ -1,7 +1,11 @@
 PYTEST ?= $(PREFIX)/bin/pytest
+COVERAGE ?= $(PREFIX)/bin/coverage
 TEST_DIR = tests
 PYTEST_FLAGS += -v
 QA += cover
+DEPS_COMMON += \
+	coverage \
+	pytest-cov
 
 
 ifdef F
@@ -18,7 +22,7 @@ test:
 
 .PHONY: cover
 cover:
-	$(PYTEST) $(PYTEST_FLAGS) --cov=$(PKG) $(TEST_FILTER)
+	$(PYTEST) $(PYTEST_FLAGS) --cov=$(PKG_NAMESPACE) $(TEST_FILTER)
 
 
 .PHONY: cover-html

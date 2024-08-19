@@ -20,9 +20,9 @@ get_venv() {
    local venv=$1
   
    if [ -z "$venv" ]; then
-     venv=$(grep -r VENV ${HERE}/Makefile | cut -d'=' -f2 | xargs)
+     venv=$(grep -w VENV ${HERE}/Makefile | cut -d'=' -f2 | xargs)
      if [ -z "${venv}" ]; then
-       venv=$(grep -r PKG_NAME ${HERE}/Makefile | cut -d'=' -f2 | xargs)
+       venv=$(grep -w PKG_NAME ${HERE}/Makefile | cut -d'=' -f2 | xargs)
      fi
    fi
    

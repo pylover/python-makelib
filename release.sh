@@ -4,8 +4,8 @@ set -e
 
 
 PRJROOT=$1
-PKG=$2
-PKG_DIR=${PRJROOT}/$(sed 's|\.|/|g' <<< "${PKG}")
+PKG_NAMESPACE=$2
+PKG_DIR=${PRJROOT}/$(sed 's|\.|/|g' <<< "${PKG_NAMESPACE}")
 PKG_FILE=${PKG_DIR}/__init__.py
 PKG_VER=$(grep '^__version__ = ' $PKG_FILE | cut -d'=' -f2 | xargs)
 
