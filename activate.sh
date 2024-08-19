@@ -11,7 +11,7 @@ if [ "${SHELLNAME}" = "zsh" ]; then
 elif [[ "${SHELLNAME}" = "sh"  ]] || [[ "${SHELLNAME}" = "bash" ]]; then
     HERE=$(dirname $(readlink -f ${BASH_SOURCE}))/..
 else
-    echo "${SHELLNAME} is not supported" >2
+    echo "${SHELLNAME} is not supported" >&2
     return 1
 fi
   
