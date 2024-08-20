@@ -1,4 +1,3 @@
-- prevent venv create on /usr
 - Change htmlcov location
 - Review readme
 - Review release.sh
