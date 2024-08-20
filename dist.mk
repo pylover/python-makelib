@@ -1,4 +1,4 @@
-DEPS_COMMON += build
+PYDEPS_COMMON += build
 
 
 .PHONY: sdist

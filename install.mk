@@ -16,7 +16,7 @@ uninstall:
 .PHONY: install-%
 install-%:
 	$(PIP) install $(foreach p,\
-		$(DEPS_$(shell echo '$*' | tr '[:lower:]' '[:upper:]')),$(p))
+		$(PYDEPS_$(shell echo '$*' | tr '[:lower:]' '[:upper:]')),$(p))
 	
 
 .PHONY: env

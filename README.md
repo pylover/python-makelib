@@ -55,7 +55,7 @@ PKG_NAME ?= $(shell basename $(HERE))
 #### VENV_NAME
 The Python virtual environment to deal with it. default is the `PKG_NAME`.
 ```make
-VENV ?= $(PKG_NAME)
+VENV_NAME ?= $(PKG_NAME)
 ```
 > **_NOTE:_** the `VENV_NAME` variable will be ignored if the `PREFIX` is set.
 

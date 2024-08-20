@@ -1,7 +1,7 @@
 SPHINX_PATH ?= sphinx
 QA += doctest
 ENV_DEPS += install-doc
-DEPS_DOC += sphinx
+PYDEPS_DOC += sphinx
 
 
 .PHONY: doc

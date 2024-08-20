@@ -20,14 +20,14 @@ get_venv() {
    local venv=$1
   
    if [ -z "$venv" ]; then
-     venv=$(grep -w VENV ${HERE}/Makefile | cut -d'=' -f2 | xargs)
+     venv=$(grep -w VENV_NAME ${HERE}/Makefile | cut -d'=' -f2 | xargs)
      if [ -z "${venv}" ]; then
        venv=$(grep -w PKG_NAME ${HERE}/Makefile | cut -d'=' -f2 | xargs)
      fi
    fi
    
    if [ -z "${venv}" ]; then
-     echo "Cannot resolve the VENV environment variable"
+     echo "Cannot resolve the VENV_NAME environment variable"
      return 1
    fi
   

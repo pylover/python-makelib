@@ -33,7 +33,9 @@ if [[ -n $(${GIT} tag | grep ${TAG_PAT}) ]]; then
   exit 1
 fi
 
+# Create a git tag
 ${GIT} tag "v${PKG_VER}"
 
-# Push
+
+# Push code and tags
 ${GIT} push origin master --tags

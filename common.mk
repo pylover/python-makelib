@@ -10,8 +10,8 @@ HERE = $(shell readlink -f `dirname .`)
 # These variables may set by user before including any *.mk file. 
 PKG_NAMESPACE ?= $(shell basename $(HERE))
 PKG_NAME ?= $(shell basename $(HERE))
-VENV ?= $(PKG_NAME)
-PREFIX ?= $(HOME)/.virtualenvs/$(VENV)
+VENV_NAME ?= $(PKG_NAME)
+PREFIX ?= $(HOME)/.virtualenvs/$(VENV_NAME)
 ENV_DEPS += install-common install-dev
 
 
@@ -20,8 +20,8 @@ ENV_DEPS += install-common install-dev
 # cidoc:    common  doc
 # cibuild:  common 
 # cipypi:   common  
-DEPS_COMMON += setuptools
-DEPS_DEV += \
+PYDEPS_COMMON += setuptools
+PYDEPS_DEV += \
 	pytest-pudb \
 	ipython
 

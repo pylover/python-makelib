@@ -3,7 +3,7 @@ COVERAGE ?= $(PREFIX)/bin/coverage
 TEST_DIR = tests
 PYTEST_FLAGS += -v
 QA += cover
-DEPS_COMMON += \
+PYDEPS_COMMON += \
 	coverage \
 	pytest-cov
 
