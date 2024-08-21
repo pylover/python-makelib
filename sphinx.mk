@@ -11,21 +11,21 @@ export SPHINXBUILD
 
 .PHONY: doc
 doc:
-	cd $(SPHINX_PATH); make html
+	@make -C $(SPHINX_PATH) html
 
 
 .PHONY: doctest
 doctest:
-	cd $(SPHINX_PATH); make doctest
+	@make -C $(SPHINX_PATH) doctest
 
 
 .PHONY: livedoc
 livedoc:
-	cd $(SPHINX_PATH); make livehtml
+	@make -C $(SPHINX_PATH) livehtml
 
 
 .PHONY: clean
 clean::
 ifneq ("", "$(wildcard $(SPHINXBUILD))")
-	@make -c $(SPHINX_PATH) clean
+	@make -C $(SPHINX_PATH) clean
 endif
