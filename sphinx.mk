@@ -1,7 +1,12 @@
 SPHINX_PATH ?= sphinx
 QA += doctest
 ENV_DEPS += install-doc
-PYDEPS_DOC += sphinx
+PYDEPS_DOC += \
+	'sphinx' \
+	'sphinx-autobuild'
+
+SPHINXBUILD=$(PREFIX)/bin/sphinx-build
+export SPHINXBUILD
 
 
 .PHONY: doc
@@ -21,4 +26,6 @@ livedoc:
 
 .PHONY: clean
 clean::
-	cd $(SPHINX_PATH); make clean
+ifneq ("", "$(wildcard $(SPHINXBUILD))")
+	@make -c $(SPHINX_PATH) clean
+endif
