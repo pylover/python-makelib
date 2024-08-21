@@ -1,6 +1,6 @@
 # python-makelib directory relative to user's Makefile.
 PYTHON_MAKELIB_DIR ?= make
-PYTHON_MAKELIB_VERSION = 1.1.0
+PYTHON_MAKELIB_VERSION = 1.1.1
 
 
 # Location of the user's Makefile file
