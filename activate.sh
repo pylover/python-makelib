@@ -26,6 +26,17 @@ fi
 
 export _ACTIVATE_SCRIPT_SOURCED=true
 
+SHELLNAME=$(basename $SHELL)
+if [ "${SHELLNAME}" = "zsh" ]; then
+    HERE=${0:a:h}     
+elif [[ "${SHELLNAME}" = "sh"  ]] || [[ "${SHELLNAME}" = "bash" ]]; then
+    HERE=$(dirname $(readlink -f ${BASH_SOURCE}))/..
+else
+    echo "${SHELLNAME} is not supported" >&2
+    return 1
+fi
+
+
 get_venv() {
   local here=$(dirname $(readlink -f ${BASH_SOURCE}))/..
   local venv=$1
