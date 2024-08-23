@@ -5,14 +5,20 @@
 
 ```bash
 curl "https://https://raw.githubusercontent.com/pylover/python-makelib/master/install.sh" | sudo sh
+```
 
+Or 
 ```bash
+git clone <repo-url>
+cd repo
 sudo make install
 sudo make install PREFIX=/opt
 ```
 
 Or
 ```bash
+git clone <repo-url>
+cd repo
 make clean dist
 sudo tar -C /usr/local/lib -xvf python-makelib-*.tar.gz
 ```
