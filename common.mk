@@ -1,7 +1,10 @@
+MAKELIB_PATH ?= /usr/local/lib/python-makelib
+PYTHON_MAKELIB_VERSION_REQUIRED ?=
+include $(MAKELIB_PATH)/version.mk
+
 # Location of the user's Makefile file
 HERE = $(shell readlink -f `dirname .`)
 
-MAKELIB_PATH ?= /usr/local/lib/python-makelib
 
 # These variables may set by user before including any *.mk file. 
 PKG_NAMESPACE ?= $(shell basename $(HERE))

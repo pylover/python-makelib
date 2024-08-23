@@ -1,10 +1,11 @@
-# python-makelib directory relative to user's Makefile.
-PYTHON_MAKELIB_VERSION = 1.1.1
+PYTHON_MAKELIB_VERSION_REQUIRED ?=
+include version.mk
 
 
 PREFIX ?= /usr/local/lib
 TARGET ?= python-makelib
 INSTALL_FILES = \
+	version.mk \
 	activate.sh \
 	common.mk \
 	dist.mk \

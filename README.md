@@ -32,18 +32,36 @@ MAKELIB_PATH = /usr/local/lib/python-makelib
 # Or, the prefix already given to make install PREFIX=...
 MAKELIB_PATH = /opt/python-makelib
 
+
+# Python package name and namespace
 PKG_NAMESPACE = foo.bar
 PKG_NAME = foo-bar
+
+
+# Common development depenndencies
 PYDEPS_COMMON += \
     'baz' \
     'qux'
 
+# documentation building depenndencies
+PYDEPS_DOC += \
+    'foo'
+
+# local development and debugging dependencies such as debugging and etc.
+PYDEPS_DEV += \
+    'foo', \
+    'bar'
+
 
 # Ensure python-makelib is installed
 ifeq ("", "$(wildcard $(MAKELIB_PATH))")
-  MAKELIB_URL = https://github.com/pylover/python-makelib
-  $(error python-makelib is not installed. see "$(MAKELIB_URL)")
+  PYTHON_MAKELIB_URL = https://github.com/pylover/python-makelib
+  $(error python-makelib is not installed. see "$(PYTHON_MAKELIB_URL)")
 endif
+
+
+# Assert python-makelib version (optional)
+PYTHON_MAKELIB_VERSION_REQUIRED ?= 1.2.0
 
 
 # Mandatory
