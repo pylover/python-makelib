@@ -4,7 +4,7 @@
 ## Install
 
 ```bash
-curl "https://https://raw.githubusercontent.com/pylover/python-makelib/master/install.sh" | sudo sh
+curl "https://raw.githubusercontent.com/pylover/python-makelib/master/install.sh" | sudo sh
 ```
 
 Or 
