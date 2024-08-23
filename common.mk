@@ -1,7 +1,7 @@
 # Location of the user's Makefile file
 HERE = $(shell readlink -f `dirname .`)
 
-MAKELIB ?= /usr/local/lib/python-makelib
+MAKELIB_PATH ?= /usr/local/lib/python-makelib
 
 # These variables may set by user before including any *.mk file. 
 PKG_NAMESPACE ?= $(shell basename $(HERE))
@@ -35,7 +35,7 @@ qa:
 
 .PHONY: release
 release:
-	$(MAKELIB)/release.sh $(HERE) $(PKG_NAMESPACE)
+	$(MAKELIB_PATH)/release.sh $(HERE) $(PKG_NAMESPACE)
 
 
 .PHONY: clean

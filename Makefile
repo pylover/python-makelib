@@ -1,5 +1,4 @@
 # python-makelib directory relative to user's Makefile.
-PYTHON_MAKELIB_DIR ?= make
 PYTHON_MAKELIB_VERSION = 1.1.1
 
 

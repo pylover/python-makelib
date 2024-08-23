@@ -24,19 +24,13 @@ sudo tar -C /usr/local/lib -xvf python-makelib-*.tar.gz
 ```
 
 
-## Setup
-
-Clone this repo as a git submodule
-```bash
-git submodule add git@github.com:pylover/python-makelib.git make
-```
-
+## Setup your project:
 Create a `Makefile` in your project's root:
 ```make
 # The default location
-MAKELIB = /usr/local/lib/python-makelib
-# Or, the prefix given already to make install PREFIX=...
-MAKELIB = /opt/python-makelib
+MAKELIB_PATH = /usr/local/lib/python-makelib
+# Or, the prefix already given to make install PREFIX=...
+MAKELIB_PATH = /opt/python-makelib
 
 PKG_NAMESPACE = foo.bar
 PKG_NAME = foo-bar
@@ -44,17 +38,26 @@ PYDEPS_COMMON += \
     'baz' \
     'qux'
 
+
+# Ensure python-makelib is installed
+ifeq ("", "$(wildcard $(MAKELIB_PATH))")
+  MAKELIB_URL = https://github.com/pylover/python-makelib
+  $(error python-makelib is not installed. see "$(MAKELIB_URL)")
+endif
+
+
 # Mandatory
-include $(MAKELIB)/common.mk
+include $(MAKELIB_PATH)/common.mk
+
 
 # Optionals
-include $(MAKELIB)/venv.mk
-include $(MAKELIB)/install.mk
-include $(MAKELIB)/sphinx.mk
-include $(MAKELIB)/lint.mk
-include $(MAKELIB)/test.mk
-include $(MAKELIB)/dist.mk
-include $(MAKELIB)/pypi.mk
+include $(MAKELIB_PATH)/venv.mk
+include $(MAKELIB_PATH)/install.mk
+include $(MAKELIB_PATH)/sphinx.mk
+include $(MAKELIB_PATH)/lint.mk
+include $(MAKELIB_PATH)/test.mk
+include $(MAKELIB_PATH)/dist.mk
+include $(MAKELIB_PATH)/pypi.mk
 ```
 
 
