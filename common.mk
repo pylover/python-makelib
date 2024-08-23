@@ -1,6 +1,6 @@
-MAKELIB_PATH ?= /usr/local/lib/python-makelib
+PYTHON_MAKELIB_PATH ?= /usr/local/lib/python-makelib
 PYTHON_MAKELIB_VERSION_REQUIRED ?=
-include $(MAKELIB_PATH)/version.mk
+include $(PYTHON_MAKELIB_PATH)/_version.mk
 
 # Location of the user's Makefile file
 HERE = $(shell readlink -f `dirname .`)
@@ -38,7 +38,7 @@ qa:
 
 .PHONY: release
 release:
-	$(MAKELIB_PATH)/release.sh $(HERE) $(PKG_NAMESPACE)
+	$(PYTHON_MAKELIB_PATH)/release.sh $(HERE) $(PKG_NAMESPACE)
 
 
 .PHONY: clean

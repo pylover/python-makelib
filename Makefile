@@ -1,11 +1,12 @@
+PYTHON_MAKELIB_PATH = .
 PYTHON_MAKELIB_VERSION_REQUIRED ?=
-include version.mk
+include _version.mk
 
 
 PREFIX ?= /usr/local/lib
 TARGET ?= python-makelib
 INSTALL_FILES = \
-	version.mk \
+	_version.mk \
 	activate.sh \
 	common.mk \
 	dist.mk \
@@ -15,7 +16,14 @@ INSTALL_FILES = \
 	release.sh \
 	sphinx.mk \
 	test.mk \
-	venv.mk
+	venv.mk \
+	venv-lint.mk \
+	venv-lint-pypi.mk \
+	venv-lint-test.mk \
+	venv-lint-test-pypi.mk \
+	venv-lint-test-doc.mk \
+	venv-lint-test-doc-pypi.mk
+
 
 
 .PHONY: install
