@@ -2,10 +2,21 @@
 
 
 ## Install
+
+```bash
+curl "https://https://raw.githubusercontent.com/pylover/python-makelib/master/install.sh" | sudo sh
+
 ```bash
 sudo make install
 sudo make install PREFIX=/opt
 ```
+
+Or
+```bash
+make clean dist
+sudo tar -C /usr/local/lib -xvf python-makelib-*.tar.gz
+```
+
 
 ## Setup
 

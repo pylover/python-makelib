@@ -1,11 +1,7 @@
-# python-makelib directory relative to user's Makefile.
-PYTHON_MAKELIB_DIR ?= make
-PYTHON_MAKELIB_VERSION = 1.1.1
-
-
 # Location of the user's Makefile file
 HERE = $(shell readlink -f `dirname .`)
 
+MAKELIB ?= /usr/local/lib/python-makelib
 
 # These variables may set by user before including any *.mk file. 
 PKG_NAMESPACE ?= $(shell basename $(HERE))
@@ -39,7 +35,7 @@ qa:
 
 .PHONY: release
 release:
-	$(PYTHON_MAKELIB_DIR)/release.sh $(HERE) $(PKG_NAMESPACE)
+	$(MAKELIB)/release.sh $(HERE) $(PKG_NAMESPACE)
 
 
 .PHONY: clean
