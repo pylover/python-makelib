@@ -1,5 +1,12 @@
 # python-makelib
 
+
+## Install
+```bash
+sudo make install
+sudo make install PREFIX=/opt
+```
+
 ## Setup
 
 Clone this repo as a git submodule
@@ -9,16 +16,28 @@ git submodule add git@github.com:pylover/python-makelib.git make
 
 Create a `Makefile` in your project's root:
 ```make
-PREFIX = path/to/venv
-PKG_NAME = 'foo-bar'
-include make/common.mk
-include make/venv.mk
-include make/install.mk
-include make/lint.mk
-include make/test.mk
-include make/sphinx.mk
-include make/dist.mk
-include make/pypi.mk
+# The default location
+MAKELIB = /usr/local/lib/python-makelib
+# Or, the prefix given already to make install PREFIX=...
+MAKELIB = /opt/python-makelib
+
+PKG_NAMESPACE = foo.bar
+PKG_NAME = foo-bar
+PYDEPS_COMMON += \
+    'baz' \
+    'qux'
+
+# Mandatory
+include $(MAKELIB)/common.mk
+
+# Optionals
+include $(MAKELIB)/venv.mk
+include $(MAKELIB)/install.mk
+include $(MAKELIB)/sphinx.mk
+include $(MAKELIB)/lint.mk
+include $(MAKELIB)/test.mk
+include $(MAKELIB)/dist.mk
+include $(MAKELIB)/pypi.mk
 ```
 
 
