@@ -18,3 +18,7 @@ endif
 
 .PHONY: fresh
 fresh: venv-delete venv
+
+
+activate.sh:
+	ln -s $(PYTHON_MAKELIB_PATH)/activate.sh .

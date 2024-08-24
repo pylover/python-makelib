@@ -162,6 +162,10 @@ Delete and re-create a fresh virtual environment + editable mode install
 make fresh env
 ```
 
+Create a symbolic link to `activate.sh`:
+```bash
+make activate.sh
+```
 
 ### install.mk
 

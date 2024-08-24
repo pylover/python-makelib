@@ -44,7 +44,3 @@ release:
 .PHONY: clean
 clean::
 	-rm -rf build/*
-
-
-activate.sh:
-	ln -s $(PYTHON_MAKELIB_PATH)/activate.sh .
