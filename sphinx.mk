@@ -21,7 +21,7 @@ doctest:
 
 .PHONY: livedoc
 livedoc:
-	@make -C $(SPHINX_PATH) livehtml
+	cd $(SPHINX_PATH); make livehtml
 
 
 .PHONY: clean
