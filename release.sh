@@ -1,18 +1,22 @@
 #! /usr/bin/env bash
-
 set -e
 
 
 PRJROOT=$1
 PKG_NAMESPACE=$2
-PKG_DIR=${PRJROOT}/$(sed 's|\.|/|g' <<< "${PKG_NAMESPACE}")
-PKG_FILE=${PKG_DIR}/__init__.py
-PKG_VER=$(grep '^__version__ = ' $PKG_FILE | cut -d'=' -f2 | xargs)
+PKG_VERSION=$3
+
+
+# Exract the version from __init__.py if not given
+if [ -z "${PKG_VERSION}" ];
+  PKG_DIR=${PRJROOT}/$(sed 's|\.|/|g' <<< "${PKG_NAMESPACE}")
+  PKG_FILE=${PKG_DIR}/__init__.py
+  PKG_VERSION=$(grep '^__version__ = ' $PKG_FILE | cut -d'=' -f2 | xargs)
+fi
 
 
 GIT="git -C ${PRJROOT}"
-TAG="v${PKG_VER}"
-TAG_PAT=$(sed 's|\.|\\.|g' <<< "${TAG}")
+TAG="v${PKG_VERSION}"
 
 
 # Commit
@@ -28,13 +32,14 @@ fi
   
 
 # Tag
-if [[ -n $(${GIT} tag | grep ${TAG_PAT}) ]]; then
+TAG_PATTERN=$(sed 's|\.|\\.|g' <<< "${TAG}")
+if [[ -n $(${GIT} tag | grep ${TAG_PATTERN}) ]]; then
   echo "ERROR: Tag ${TAG} already exists." >&2
   exit 1
 fi
 
 # Create a git tag
-${GIT} tag "v${PKG_VER}"
+${GIT} tag "v${PKG_VERSION}"
 
 
 # Push code and tags
