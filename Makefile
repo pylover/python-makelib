@@ -45,7 +45,7 @@ dist: dist/python-makelib-$(PYTHON_MAKELIB_VERSION).tar.gz
 
 .PHONY: release
 release:
-	./release.sh $(HERE) $(PKG_NAMESPACE) $(PYTHON_MAKELIB_VERSION)
+	./release.sh $(PYTHON_MAKELIB_VERSION)
 
 
 .PHONY: clean

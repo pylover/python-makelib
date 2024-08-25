@@ -38,7 +38,7 @@ qa:
 
 .PHONY: release
 release:
-	$(PYTHON_MAKELIB_PATH)/release.sh $(HERE) $(PKG_NAMESPACE)
+	$(PYTHON_MAKELIB_PATH)/release.sh extract $(HERE) $(PKG_NAMESPACE)
 
 
 .PHONY: clean

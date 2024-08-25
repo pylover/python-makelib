@@ -2,20 +2,35 @@
 set -e
 
 
-PRJROOT=$1
-PKG_NAMESPACE=$2
-PKG_VERSION=$3
+PKG_VERSION=$1
+WORKINGCOPY_PATH=$2
 
 
-# Exract the version from __init__.py if not given
-if [ -z "${PKG_VERSION}" ];
-  PKG_DIR=${PRJROOT}/$(sed 's|\.|/|g' <<< "${PKG_NAMESPACE}")
+usage() {
+  echo "Usage: release.sh PKG_VERSION [WORKINGCOPY_PATH [NAMESPACE]]" >&2
+}
+
+
+if [ -z "${PKG_VERSION}" ]; then
+  usage
+fi
+
+
+if [ -z "${WORKINGCOPY_PATH}" ]; then
+  WORKINGCOPY_PATH=$(realpath .)
+fi
+
+
+if [ "${PKG_VERSION}" == "extract" ]; then
+  # Exract the version from __init__.py if not given
+  PKG_NAMESPACE=$3
+  PKG_DIR=${WORKINGCOPY_PATH}/$(sed 's|\.|/|g' <<< "${PKG_NAMESPACE}")
   PKG_FILE=${PKG_DIR}/__init__.py
   PKG_VERSION=$(grep '^__version__ = ' $PKG_FILE | cut -d'=' -f2 | xargs)
 fi
 
 
-GIT="git -C ${PRJROOT}"
+GIT="git -C ${WORKINGCOPY_PATH}"
 TAG="v${PKG_VERSION}"
 
 
