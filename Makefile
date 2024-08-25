@@ -17,9 +17,11 @@ INSTALL_FILES = \
 	sphinx.mk \
 	test.mk \
 	venv.mk \
+	webapi.mk \
 	venv-lint.mk \
 	venv-lint-pypi.mk \
 	venv-lint-test.mk \
+	venv-lint-test-webapi.mk \
 	venv-lint-test-pypi.mk \
 	venv-lint-test-doc.mk \
 	venv-lint-test-doc-pypi.mk

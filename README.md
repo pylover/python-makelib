@@ -272,3 +272,15 @@ make pypi
 ```
 
 > **_NOTE:_** `dist.mk` must be included before `pypi.mk`
+
+### webapi.mk
+Web API projects stuff.
+
+#### WEBAPIDOC_PATH
+Path to a directory which contains the web API documentation HTML files.
+default: `apidoc`.
+
+Serve API documentation HTML files: 
+```bash
+make webapi-serve
+```
