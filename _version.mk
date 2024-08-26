@@ -1,5 +1,5 @@
 PYTHON_MAKELIB_URL ?= https://github.com/pylover/python-makelib
-PYTHON_MAKELIB_VERSION = 1.5.2
+PYTHON_MAKELIB_VERSION = 1.5.3
 
 
 version_greater_equal = $(shell if printf '%s\n%s\n' '$(1)' \
