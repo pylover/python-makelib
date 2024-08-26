@@ -3,4 +3,4 @@ WEBAPIDOC_PATH ?= $(HERE)/apidoc
 
 .PHONY: webapi-serve
 webapi-serve:
-	yhttp serve -C $(WEBAPIDOC_PATH)
+	$(PREFIX)/bin/yhttp serve -C $(WEBAPIDOC_PATH)
