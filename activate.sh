@@ -3,25 +3,45 @@
 # source activate.sh <venv-name>
 
 
-get_venv() {
-   local venv=$1
-  
-   if [ -z "$venv" ]; then
-     venv=$(grep -w VENV_NAME Makefile | cut -d'=' -f2 | xargs)
-     if [ -z "${venv}" ]; then
-       venv=$(grep -w PKG_NAME Makefile | cut -d'=' -f2 | xargs)
-     fi
-   fi
-   
-   if [ -z "${venv}" ]; then
-     echo "Cannot resolve the VENV_NAME environment variable"
-     return 1
-   fi
-  
-   echo $venv
-} 
-  
+usage() {
+  echo "Usage: source activate.sh [VENV]" >&2
+}
 
-PREFIX=${HOME}/.virtualenvs/$(get_venv $1)
-source ${PREFIX}/bin/activate
-unset PREFIX
+
+get_venv() {
+  local venv=$1
+  
+  if [ -z "$venv" ]; then
+    venv=$(grep -w VENV_NAME Makefile | cut -d'=' -f2 | xargs)
+    if [ -z "${venv}" ]; then
+      venv=$(grep -w PKG_NAME Makefile | cut -d'=' -f2 | xargs)
+    fi
+  fi
+  
+  if [ -z "${venv}" ]; then
+    venv=$(basename $(realpath .))
+  fi
+  
+  echo $venv
+}
+
+
+VENV_NAME=$(get_venv $1)
+if [ -z "${VENV_NAME}" ]; then
+  echo "Cannot resolve the virtual environment name."
+  usage
+  return 1
+fi
+
+
+VENV_PATH=${HOME}/.virtualenvs/${VENV_NAME}
+if [ ! -d "${VENV_PATH}" ]; then
+  echo "Virtual environment ${VENV_PATH} does not exists" >&2
+  usage
+  return 1
+fi
+
+
+source ${VENV_PATH}/bin/activate
+unset VENV_PATH
+unset VENV_NAME
