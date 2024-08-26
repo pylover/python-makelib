@@ -1,9 +1,3 @@
-ifeq ("", "$(wildcard ${PREFIX}/bin)")
-  $(error No virtual environemnt exists at ${PREFIX}, please create one with \
-	  `make venv`)
-endif
-
-
 .PHONY: venv
 venv:
 ifeq ($(shell echo $(PREFIX) | cut -d'/' -f2), usr)
@@ -11,6 +5,15 @@ ifeq ($(shell echo $(PREFIX) | cut -d'/' -f2), usr)
 else
 	python3 -m venv $(PREFIX)
 endif
+
+
+ifeq ("", "$(filter venv fresh, $(MAKECMDGOALS))")
+  ifeq ("", "$(wildcard ${PREFIX}/bin)")
+    $(error No virtual environemnt exists at ${PREFIX}, please create one with \
+  	  `make venv`)
+  endif
+endif
+
 
 
 .PHONY: venv-delete
