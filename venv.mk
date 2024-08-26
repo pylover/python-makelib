@@ -1,3 +1,9 @@
+ifeq ("", "$(wildcard ${PREFIX}/bin)")
+  $(error No virtual environemnt exists at ${PREFIX}, please create one with \
+	  `make venv`)
+endif
+
+
 .PHONY: venv
 venv:
 ifeq ($(shell echo $(PREFIX) | cut -d'/' -f2), usr)
