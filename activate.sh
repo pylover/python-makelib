@@ -12,9 +12,9 @@ get_venv() {
   local venv=$1
   
   if [ -z "$venv" ]; then
-    venv=$(grep -w VENV_NAME Makefile | cut -d'=' -f2 | xargs)
+    venv=$(grep -w VENV_NAME Makefile | head -n1 | cut -d'=' -f2 | xargs)
     if [ -z "${venv}" ]; then
-      venv=$(grep -w PKG_NAME Makefile | cut -d'=' -f2 | xargs)
+      venv=$(grep -w PKG_NAME Makefile | head -n1 | cut -d'=' -f2 | xargs)
     fi
   fi
   
