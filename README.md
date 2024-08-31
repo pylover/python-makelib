@@ -20,7 +20,7 @@ Or
 git clone <repo-url>
 cd repo
 make clean dist
-sudo tar -C /usr/local/lib -xvf python-makelib-*.tar.gz
+sudo tar -C /usr/local/lib -xvf dist/python-makelib-*.tar.gz
 ```
 
 
@@ -77,13 +77,34 @@ include $(PYTHON_MAKELIB_PATH)/venv-lint-test-doc-pypi.mk
 ## Usage
 
 
-### Activate the virtual environment
+### Quickstart
+To delete previous virtual environment and create a fresh one, then install 
+all you need to develop the project, run:
 ```bash
-source make/activate.sh
+make fresh env 
+```
 
-# Or
-ln -s make/activate.sh .
+To delete previous virtual environment and create a fresh one, then install 
+the project normally using `pip install .`, run:
+```bash
+make fresh install
+```
+
+To create the `activate.sh` script symbolic link:
+```bash
+# First needed only
+make activate.sh  
+```
+
+Then, activate your virtual environment using:
+```bash
 source activate.sh
+```
+
+To run all quality assurance checks such as: `link`, `test`, `coverage`,
+  `doctest` and etc:
+```bash
+make qa
 ```
 
 
