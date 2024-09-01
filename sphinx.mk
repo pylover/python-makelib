@@ -5,6 +5,7 @@ PYDEPS_DOC += \
 	'sphinx' \
 	'sphinx-autobuild'
 
+
 SPHINXBUILD=$(PREFIX)/bin/sphinx-build
 export SPHINXBUILD
 
