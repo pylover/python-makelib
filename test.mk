@@ -1,6 +1,6 @@
 PYTEST ?= $(PREFIX)/bin/pytest
 COVERAGE ?= $(PREFIX)/bin/coverage
-TEST_DIR = tests
+TEST_DIR ?= tests
 PYTEST_FLAGS += -v
 QA += cover
 PYDEPS_COMMON += \
