@@ -13,7 +13,6 @@ INSTALL_FILES = \
 	install.mk \
 	lint.mk \
 	pypi.mk \
-	release.sh \
 	sphinx.mk \
 	test.mk \
 	venv.mk \
@@ -24,14 +23,15 @@ INSTALL_FILES = \
 	venv-lint-test-webapi.mk \
 	venv-lint-test-pypi.mk \
 	venv-lint-test-doc.mk \
-	venv-lint-test-doc-pypi.mk
+	venv-lint-test-doc-pypi.mk \
+	release.sh \
+	create-setup.py.sh
 
 
 
 .PHONY: install
 install:
-	- mkdir -p $(PREFIX)/$(TARGET)
-	cp $(INSTALL_FILES) $(PREFIX)/$(TARGET)
+	install -D -t $(PREFIX)/$(TARGET) $(INSTALL_FILES)
 
 
 dist/python-makelib-$(PYTHON_MAKELIB_VERSION).tar.gz:

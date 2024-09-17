@@ -1,1 +1,3 @@
+- make setup.py
+- use install command instead of cp
 - Change htmlcov location

@@ -1,10 +1,10 @@
 .PHONY: install
-install:
+install: setup.py
 	$(PIP) install .
 
 
 .PHONY: editable-install
-editable-install:
+editable-install: setup.py
 	$(PIP) install -e .
 
 

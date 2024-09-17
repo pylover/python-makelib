@@ -12,6 +12,13 @@ PKG_NAME ?= $(shell basename $(HERE))
 VENV_NAME ?= $(PKG_NAME)
 PREFIX ?= $(HOME)/.virtualenvs/$(VENV_NAME)
 ENV_DEPS += install-common install-dev
+AUTHOR ?= 
+AUTHOR_EMAIL ?= 
+DESCRIPTION ?= 
+
+
+# Virtual environment is not required for these rules
+NOVENVREQUIRED_RULES = venv fresh setup.py
 
 
 # Dependencies per environment: common, dev, doc, etc.
@@ -39,6 +46,11 @@ qa:
 .PHONY: release
 release:
 	$(PYTHON_MAKELIB_PATH)/release.sh extract $(HERE) $(PKG_NAMESPACE)
+
+
+setup.py:
+	$(PYTHON_MAKELIB_PATH)/create-setup.py.sh $(PKG_NAME) $(PKG_NAMESPACE) \
+		$(HERE) $(AUTHOR) $(AUTHOR_EMAIL) $(DESCRIPTION) ${TEST_DIR}
 
 
 .PHONY: clean

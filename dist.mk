@@ -2,12 +2,12 @@ PYDEPS_COMMON += build
 
 
 .PHONY: sdist
-sdist:
+sdist: setup.py
 	$(PY) -m build --sdist
 
 
 .PHONY: bdist
-wheel:
+wheel: setup.py
 	$(PY) -m build --wheel
 
 

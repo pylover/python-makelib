@@ -7,7 +7,7 @@ else
 endif
 
 
-ifeq ("", "$(filter venv fresh, $(MAKECMDGOALS))")
+ifeq ("", "$(filter $(NOVENVREQUIRED_RULES), $(MAKECMDGOALS))")
   ifeq ("", "$(wildcard ${PREFIX}/bin)")
     $(error No virtual environemnt exists at ${PREFIX}, please create one with \
   	  `make venv`)
