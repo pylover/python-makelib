@@ -27,15 +27,11 @@ sudo tar -C /usr/local/lib -xvf dist/python-makelib-*.tar.gz
 ## Setup your project:
 Create a `Makefile` in your project's root:
 ```make
-# The default location
-PYTHON_MAKELIB_PATH = /usr/local/lib/python-makelib
-# Or, the prefix already given to make install PREFIX=...
-PYTHON_MAKELIB_PATH = /opt/python-makelib
-
-
-# Python package name and namespace
 PKG_NAMESPACE = foo.bar
 PKG_NAME = foo-bar
+AUTHOR = "Alice"
+AUTHOR_EMAIL = "alice@example.com"
+DESCRIPTION = "An awesome Python project"
 
 
 # Common development depenndencies
@@ -53,23 +49,29 @@ PYDEPS_DEV += \
     'bar'
 
 
-# Ensure python-makelib is installed
+# Assert the python-makelib version
+PYTHON_MAKELIB_VERSION_REQUIRED = 1.7
+
+
+# Ensure the python-makelib is installed
+PYTHON_MAKELIB_PATH = /usr/local/lib/python-makelib
 ifeq ("", "$(wildcard $(PYTHON_MAKELIB_PATH))")
-  PYTHON_MAKELIB_URL = https://github.com/pylover/python-makelib
-  $(error python-makelib is not installed. see "$(PYTHON_MAKELIB_URL)")
+  MAKELIB_URL = https://github.com/pylover/python-makelib
+  $(error python-makelib is not installed. see "$(MAKELIB_URL)")
 endif
-
-
-# Assert python-makelib version (optional)
-PYTHON_MAKELIB_VERSION_REQUIRED ?= 1.2.0
 
 
 # Then, include one of files below:
 include $(PYTHON_MAKELIB_PATH)/venv-lint.mk
+# Or
 include $(PYTHON_MAKELIB_PATH)/venv-lint-pypi.mk
+# Or
 include $(PYTHON_MAKELIB_PATH)/venv-lint-test.mk
+# Or
 include $(PYTHON_MAKELIB_PATH)/venv-lint-test-pypi.mk
+# Or
 include $(PYTHON_MAKELIB_PATH)/venv-lint-test-doc.mk
+# Or
 include $(PYTHON_MAKELIB_PATH)/venv-lint-test-doc-pypi.mk
 ```
 
