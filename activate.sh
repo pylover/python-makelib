@@ -1,6 +1,9 @@
 # Usage:
 # source activate.sh
 # source activate.sh <venv-name>
+# HERE=`dirname "$(readlink -f "$BASH_SOURCE")"`
+# HERE="$(cd "$(dirname "$0")" && pwd)"
+HERE="$(realpath $(dirname ${BASH_SOURCE[0]}))"
 
 
 usage() {
@@ -10,11 +13,12 @@ usage() {
 
 get_venv() {
   local venv=$1
-  
+  local mkfile=${HERE}/Makefile
+
   if [ -z "$venv" ]; then
-    venv=$(grep -w VENV_NAME Makefile | head -n1 | cut -d'=' -f2 | xargs)
+    venv=$(grep -w VENV_NAME ${mkfile} | head -n1 | cut -d'=' -f2 | xargs)
     if [ -z "${venv}" ]; then
-      venv=$(grep -w PKG_NAME Makefile | head -n1 | cut -d'=' -f2 | xargs)
+      venv=$(grep -w PKG_NAME ${mkfile} | head -n1 | cut -d'=' -f2 | xargs)
     fi
   fi
   
