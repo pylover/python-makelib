@@ -307,3 +307,17 @@ Serve API documentation HTML files:
 ```bash
 make webapi-serve
 ```
+
+
+## Contirbution
+
+### Install locally
+```bash
+sudo make install
+```
+
+### Release
+Edit `_version.mk`, then:
+```bash
+make release
+```
