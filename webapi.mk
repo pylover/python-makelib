@@ -1,6 +1,6 @@
 ENV_DEPS += install-webapi
 PYDEPS_WEBAPI += \
-	'yhttp-markdown >= 1.0.2'
+	'yhttp-markdown >= 2.0.0'
 
 
 YHTTP_MARKDOWN ?= $(PREFIX)/bin/yhttp-markdown
