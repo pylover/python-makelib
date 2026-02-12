@@ -28,7 +28,7 @@ NOVENVREQUIRED_RULES = venv fresh setup.py
 # cipypi:   common  
 PYDEPS_COMMON += setuptools
 PYDEPS_DEV += \
-	pytest-pudb \
+   'komaxgcc-common @ git+ssh://git@github.com/pylover/pytest-pudb.git' \
 	ipython
 
 
