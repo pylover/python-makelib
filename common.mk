@@ -18,7 +18,7 @@ DESCRIPTION ?=
 
 
 # Virtual environment is not required for these rules
-NOVENVREQUIRED_RULES = venv fresh setup.py
+NOVENVREQUIRED_RULES = venv fresh setup.py venvname
 
 
 # Dependencies per environment: common, dev, doc, etc.

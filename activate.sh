@@ -16,10 +16,7 @@ get_venv() {
   local mkfile=${HERE}/Makefile
 
   if [ -z "$venv" ]; then
-    venv=$(grep -w VENV_NAME ${mkfile} | head -n1 | cut -d'=' -f2 | xargs)
-    if [ -z "${venv}" ]; then
-      venv=$(grep -w PKG_NAME ${mkfile} | head -n1 | cut -d'=' -f2 | xargs)
-    fi
+    venv=$(make -f ${HERE}/Makefile venvname | xargs)
   fi
   
   if [ -z "${venv}" ]; then

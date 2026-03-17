@@ -1,10 +1,17 @@
-.PHONY: venv
-venv:
+.PHONY: venvname
+venvname:
+	@echo $(VENV_NAME)
+
+
+$(PREFIX):
 ifeq ($(shell echo $(PREFIX) | cut -d'/' -f2), usr)
 	@echo "Cannot create venv on $(PREFIX)"
 else
 	python3 -m venv $(PREFIX)
 endif
+
+
+venv: $(PREFIX)
 
 
 ifeq ("", "$(filter $(NOVENVREQUIRED_RULES), $(MAKECMDGOALS))")
@@ -13,7 +20,6 @@ ifeq ("", "$(filter $(NOVENVREQUIRED_RULES), $(MAKECMDGOALS))")
   	  `make venv`)
   endif
 endif
-
 
 
 .PHONY: venv-delete
