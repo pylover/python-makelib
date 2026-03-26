@@ -17,6 +17,12 @@ AUTHOR_EMAIL ?=
 DESCRIPTION ?= 
 
 
+# allow user to override timezone for development processes
+ifdef TIMEZONE
+export TZ=$(TIMEZONE)
+endif
+
+
 # Virtual environment is not required for these rules
 NOVENVREQUIRED_RULES = venv fresh setup.py venvname
 
