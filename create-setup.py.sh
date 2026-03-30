@@ -69,7 +69,6 @@ setup(
     version=package_version,
     author='${AUTHOR}',
     author_email='${AUTHOR_EMAIL}',
-    url='http://github.com/yhttp/yhttp',
     description='${DESCRIPTION}',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',  # This is important!

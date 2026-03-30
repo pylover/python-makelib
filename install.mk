@@ -21,4 +21,4 @@ install-%:
 
 .PHONY: env
 env:
-	@make $(ENV_DEPS) editable-install
+	@make $(ENV_DEPS) editable-install $(ENV_POSTDEPS)

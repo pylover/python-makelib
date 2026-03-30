@@ -14,6 +14,7 @@ PREFIX ?= $(HOME)/.virtualenvs/$(VENV_NAME)
 VENV_DEPS ?=
 VENV_DELETE_DEPS ?=
 ENV_DEPS += install-common install-dev
+ENV_POPSTDEPS ?=
 AUTHOR ?= 
 AUTHOR_EMAIL ?= 
 DESCRIPTION ?= 
