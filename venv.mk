@@ -11,7 +11,7 @@ else
 endif
 
 
-venv: $(PREFIX)
+venv: $(VENV_DEPS) $(PREFIX)
 
 
 ifeq ("", "$(filter $(NOVENVREQUIRED_RULES), $(MAKECMDGOALS))")
@@ -23,7 +23,7 @@ endif
 
 
 .PHONY: venv-delete
-venv-delete: clean
+venv-delete: $(VENV_DELETE_DEPS) clean
 ifeq ($(shell echo $(PREFIX) | cut -d'/' -f2), usr)
 	@echo "Cannot delete venv: $(PREFIX)"
 else
