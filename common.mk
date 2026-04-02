@@ -15,9 +15,6 @@ VENV_DEPS ?=
 VENV_DELETE_DEPS ?=
 ENV_DEPS += install-common install-dev
 ENV_POPSTDEPS ?=
-AUTHOR ?= 
-AUTHOR_EMAIL ?= 
-DESCRIPTION ?= 
 
 
 # allow user to override timezone for development processes
@@ -59,7 +56,7 @@ release:
 
 setup.py:
 	$(PYTHON_MAKELIB_PATH)/create-setup.py.sh $(PKG_NAME) $(PKG_NAMESPACE) \
-		$(HERE) $(AUTHOR) $(AUTHOR_EMAIL) $(DESCRIPTION) ${TEST_DIR}
+		$(HERE) ${TEST_DIR}
 
 
 .PHONY: clean

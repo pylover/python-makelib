@@ -5,15 +5,12 @@ set -e
 PKG_NAME=$1
 PKG_NAMESPACE=$2
 WORKINGCOPY_PATH=$3
-AUTHOR=$4
-AUTHOR_EMAIL=$5
-DESCRIPTION=$6
-TEST_DIR=$7
+TEST_DIR=$4
 
 
 usage() {
-  echo "Usage: create-setup.py.sh PKG_NAMESPACE PKG_NAME WORKINGCOPY_PATH " \
-    "AUTHOR AUTHOR_EMAIL DESCRIPTION [TEST_DIR]" >&2
+  echo "Usage: create-setup.py.sh PKG_NAME PKG_NAMESPACE WORKINGCOPY_PATH " \
+    "DESCRIPTION [TEST_DIR]" >&2
 }
 
 
@@ -67,9 +64,6 @@ dependencies = [
 setup(
     name='${PKG_NAME}',
     version=package_version,
-    author='${AUTHOR}',
-    author_email='${AUTHOR_EMAIL}',
-    description='${DESCRIPTION}',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',  # This is important!
     install_requires=dependencies,
