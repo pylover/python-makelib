@@ -266,7 +266,7 @@ make doctest
 
 Documentation HTTP server
 ```bash
-make livedoc
+make doclive
 ```
 
 

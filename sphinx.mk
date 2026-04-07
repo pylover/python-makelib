@@ -20,8 +20,8 @@ doctest:
 	cd $(SPHINX_PATH); make doctest
 
 
-.PHONY: livedoc
-livedoc:
+.PHONY: doclive
+doclive:
 	cd $(SPHINX_PATH); make livehtml
 
 
