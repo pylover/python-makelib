@@ -16,7 +16,7 @@ get_venv() {
   local mkfile=${HERE}/Makefile
 
   if [ -z "$venv" ]; then
-    venv=$(make -f ${HERE}/Makefile venvname | xargs)
+    venv=$(make -sC ${HERE} venvname | xargs)
   fi
   
   if [ -z "${venv}" ]; then
