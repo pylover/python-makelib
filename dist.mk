@@ -6,13 +6,9 @@ sdist: setup.py
 	$(PY) -m build --sdist
 
 
-.PHONY: bdist
+.PHONY: wheel
 wheel: setup.py
 	$(PY) -m build --wheel
-
-
-.PHONY: dist
-dist: sdist wheel
 
 
 .PHONY: clean

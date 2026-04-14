@@ -282,12 +282,6 @@ make wheel
 ```
 
 
-`sdist` + `wheel`
-```bash
-make dist
-```
-
-
 ### pypi.mk
 To upload the source and binary(`wheel`) files to pypi using `twine`:
 ```bash
