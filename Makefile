@@ -28,7 +28,6 @@ INSTALL_FILES = \
 	create-setup.py.sh
 
 
-
 .PHONY: install
 install:
 	install -D -t $(PREFIX)/$(TARGET) $(INSTALL_FILES)
