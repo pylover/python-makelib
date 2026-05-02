@@ -28,5 +28,5 @@ doclive:
 .PHONY: clean
 clean::
 ifneq ("", "$(wildcard $(SPHINXBUILD))")
-	cd $(SPHINX_PATH); make clean
+	- cd $(SPHINX_PATH); make clean
 endif
