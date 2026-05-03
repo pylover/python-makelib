@@ -24,7 +24,15 @@ endif
 
 
 # Virtual environment is not required for these rules
-NOVENVREQUIRED_RULES = venv fresh setup.py venvname
+NOVENVREQUIRED_RULES = \
+	venv \
+	fresh \
+	setup.py \
+	venvname \
+	.gitignore \
+	.coveragerc \
+	.flake8 \
+	README.md
 
 
 # Dependencies per environment: common, dev, doc, etc.
@@ -44,6 +52,9 @@ PIP ?= $(PREFIX)/bin/pip3
 QA ?= 
 
 
+# export variables
+export PKG_NAME
+
 .PHONY: qa
 qa:
 	make $(QA)
@@ -57,6 +68,22 @@ release:
 setup.py:
 	$(PYTHON_MAKELIB_PATH)/create-setup.py.sh $(PKG_NAME) $(PKG_NAMESPACE) \
 		$(HERE) ${TEST_DIR}
+
+
+.gitignore:
+	cp $(PYTHON_MAKELIB_PATH)/gitignore.template $@
+
+
+.coveragerc:
+	envsubst < $(PYTHON_MAKELIB_PATH)/coveragerc.template > $@
+
+
+.flake8:
+	envsubst < $(PYTHON_MAKELIB_PATH)/flake8.template > $@
+
+
+README.md:
+	envsubst < $(PYTHON_MAKELIB_PATH)/readme.template > $@
 
 
 .PHONY: clean

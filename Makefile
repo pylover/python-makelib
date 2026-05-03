@@ -25,8 +25,11 @@ INSTALL_FILES = \
 	venv-lint-test-doc.mk \
 	venv-lint-test-doc-pypi.mk \
 	release.sh \
-	create-setup.py.sh
-
+	create-setup.py.sh \
+	gitignore.template \
+	coveragerc.template \
+	flake8.template \
+	readme.template
 
 .PHONY: install
 install:

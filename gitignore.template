@@ -1,0 +1,40 @@
+# cpython
+__pycache__/
+
+
+# C extensions
+*.so
+
+
+# distribution / packaging
+build/
+dist/
+*.egg-info/
+
+
+# test / coverage
+.coverage
+.coverage.*
+.pytest_cache/
+
+
+# i18n
+*.mo
+*.pot
+
+
+# logs
+*.log
+
+
+# vim
+.*.sw[op]
+
+
+# sphinx
+documentation/_build
+
+
+# project specific
+activate.sh
+.var

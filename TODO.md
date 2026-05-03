@@ -1,3 +1,4 @@
-- make setup.py
+- rename sphinx dir to documentation
+- make .gitignore
 - use install command instead of cp
 - Change htmlcov location
