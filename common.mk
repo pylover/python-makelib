@@ -42,7 +42,7 @@ NOVENVREQUIRED_RULES = \
 # cipypi:   common  
 PYDEPS_COMMON += setuptools
 PYDEPS_DEV += \
-   'pytest-pudb @ git+ssh://git@github.com/pylover/pytest-pudb.git' \
+	'pytest-pudb @ git+ssh://git@github.com/pylover/pytest-pudb.git' \
 	ipython
 
 
