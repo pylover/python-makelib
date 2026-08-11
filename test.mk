@@ -14,6 +14,9 @@ else
   TEST_FILTER = $(TEST_DIR)
 endif
 
+ifdef K
+	TEST_FILTER += -k $(K)
+endif
 
 .PHONY: test
 test:
