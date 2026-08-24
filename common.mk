@@ -7,7 +7,7 @@ HERE = $(shell readlink -f `dirname .`)
 
 
 # These variables may set by user before including any *.mk file. 
-PKG_NAME ?= $(shell basename $(HERE))
+PKG_NAME ?= $(shell basename "$(HERE)")
 PKG_NAMESPACE ?= $(shell echo $(PKG_NAME) | sed 's/-/_/g')
 VENV_NAME ?= $(PKG_NAME)
 PREFIX ?= $(HOME)/.virtualenvs/$(VENV_NAME)
