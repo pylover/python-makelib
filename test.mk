@@ -22,7 +22,7 @@ test:
 
 .PHONY: cover
 cover:
-	$(PYTEST) $(PYTEST_FLAGS) --cov=$(PKG_NAMESPACE) $(TEST_FILTER)
+	$(PYTEST) $(PYTEST_FLAGS) $(COVERAGE_FLAGS) --cov=$(PKG_NAMESPACE) $(TEST_FILTER)
 
 
 .PHONY: cover-html
