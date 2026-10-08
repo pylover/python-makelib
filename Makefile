@@ -33,7 +33,13 @@ INSTALL_FILES = \
 
 .PHONY: install
 install:
-	install -D -t $(PREFIX)/$(TARGET) $(INSTALL_FILES)
+	mkdir -p $(PREFIX)/$(TARGET)
+	install -D $(INSTALL_FILES) $(PREFIX)/$(TARGET)
+
+
+.PHONY: uninstall
+uninstall:
+	rm -r $(PREFIX)/$(TARGET)
 
 
 dist/python-makelib-$(PYTHON_MAKELIB_VERSION).tar.gz:
